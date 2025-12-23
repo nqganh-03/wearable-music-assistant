@@ -1,0 +1,16 @@
+# Music files
+music/*.mp3
+music/*.wav
+music/*.flac
+music/*.ogg
+music/*/*.mp3
+music/*/*.wav
+
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Logs
+*.log
+stop.log
