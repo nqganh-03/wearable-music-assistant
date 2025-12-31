@@ -324,7 +324,7 @@ systemctl --user status music-assistant
 
 **View logs**:
 ```bash
-journalctl --user -u music-assistant -f
+tail -f ~/music-player/live.log
 ```
 
 **Re-enable service**:
