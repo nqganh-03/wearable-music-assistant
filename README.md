@@ -165,6 +165,10 @@ source venv/bin/activate
 ```bash
 ./stop.sh
 ```
+or
+```bash
+systemctl --user stop music-assistant
+```
 
 ### Enable Auto-start on Boot
 
