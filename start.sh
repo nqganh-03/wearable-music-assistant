@@ -24,7 +24,6 @@ mpc repeat on
 # Activate virtual environment and start application
 cd /home/pi/music-player
 source venv/bin/activate
-python3 src/main.py
 
-# If program exits, log it
-echo "Music Assistant stopped at $(date)" >> ~/music-player/stop.log
+# Run with output to stdout 
+python3 -u src/main.py 2>&1 | tee ~/music-player/live.log
