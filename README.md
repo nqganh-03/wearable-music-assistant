@@ -98,32 +98,29 @@ The system requires music to be organized in the MPD music directory:
 └── running/        # High-energy music for running
 ```
 
-### Adding Your Music
+### Adding New Songs
 
-1. **Create directories** (if they don't exist):
+1. **Transfer song from your computer to Pi**:
 ```bash
-sudo mkdir -p /var/lib/mpd/music/{lowactivity,walking,fastwalk,running}
+scp your-song.mp3 pi@<pi-ip-address>:/home/pi/
 ```
 
-2. **Copy your music files**:
+2. **Move to activity folder**:
 ```bash
-# Example: copying music from ~/Music
-sudo cp ~/Music/calm/* /var/lib/mpd/music/lowactivity/
-sudo cp ~/Music/pop/* /var/lib/mpd/music/walking/
-sudo cp ~/Music/upbeat/* /var/lib/mpd/music/fastwalk/
-sudo cp ~/Music/rock/* /var/lib/mpd/music/running/
+# Choose based on song tempo/energy
+sudo mv ~/your-song.mp3 /var/lib/mpd/music/running/
 ```
 
-3. **Set proper permissions**:
+3. **Fix permissions**:
 ```bash
-sudo chown -R mpd:audio /var/lib/mpd/music/
-sudo chmod -R 755 /var/lib/mpd/music/
+sudo chown mpd:audio /var/lib/mpd/music/running/your-song.mp3
+sudo chmod 644 /var/lib/mpd/music/running/your-song.mp3
 ```
 
 4. **Update MPD database**:
 ```bash
 mpc update
-mpc ls  # Verify playlists are visible
+mpc ls running/  # Verify song appears
 ```
 
 ### Supported Audio Formats
